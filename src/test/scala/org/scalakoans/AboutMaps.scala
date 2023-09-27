@@ -127,7 +127,17 @@ class AboutMaps extends KoanSuite  {
     val myMap1 = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa")
     val myMap2 = Map("WI" -> "Wisconsin", "MI" -> "Michigan", "IA" -> "Iowa", "OH" -> "Ohio")
 
-
     myMap1.equals(myMap2) should be(true)
   }
+
+  koan("Map elements not guaranteed order") {
+    val myMap = Map("MI" -> "Michigan", "OH" -> "Ohio", "WI" -> "Wisconsin", "IA" -> "Iowa", "CA" -> "Cal")
+    myMap.head should be("IA", "Iowa")
+
+    val lastElement = myMap.last
+    lastElement should be("CA", "Cal")
+    myMap.values.toList should be(Iterable("Iowa", "Michigan", "Ohio", "Wisconsin", "Cal"))
+    println(myMap.getClass)
+  }
+
 }
