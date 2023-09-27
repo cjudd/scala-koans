@@ -13,13 +13,13 @@ class AboutLiteralNumbers extends KoanSuite {
     val e = -2
     val f = -31
     val g = -0x30F
-    a should be(__)
-    b should be(__)
-    c should be(__) //Hint: 30F = 783
-    d should be(__)
-    e should be(__)
-    f should be(__)
-    g should be(__) //Hint: 30F = 783
+    a should be(2)
+    b should be(31)
+    c should be(783) //Hint: 30F = 783
+    d should be(0)
+    e should be(-2)
+    f should be(-31)
+    g should be(-783) //Hint: 30F = 783
   }
 
   koan("""Long Literals are 64 bit, are specified by appending an L or l at the end;
@@ -32,13 +32,13 @@ class AboutLiteralNumbers extends KoanSuite {
     val h = -31L
     val i = -0x30FL
 
-    a should be(__)
-    b should be(__)
-    c should be(__) //Hint: 30F = 783
-    d should be(__)
-    g should be(__)
-    h should be(__)
-    i should be(__) //Hint: 30F = 783
+    a should be(2L)
+    b should be(31L)
+    c should be(783L) //Hint: 30F = 783
+    d should be(0L)
+    g should be(-2L)
+    h should be(-31L)
+    i should be(-783L) //Hint: 30F = 783
   }
 
   koan("""Float and Double Literals are IEEE 754 for specific,
@@ -57,14 +57,14 @@ class AboutLiteralNumbers extends KoanSuite {
     val h = 0.0
     val i = 9.23E-9D
 
-    a should be(__)
-    b should be(__)
-    c should be(__)
-    d should be(__)
-    e should be(__)
-    f should be(__)
-    g should be(__)
-    h should be(__)
-    i should be(__)
+    a should be(3D)
+    b should be(3D)
+    c should be(2.73D)
+    d should be(3F)
+    e should be(3.22D)
+    f should be(93E-9D)
+    g should be(93e-9D)
+    h should be(0D)
+    i should be(9.23e-9d)
   }
 }
