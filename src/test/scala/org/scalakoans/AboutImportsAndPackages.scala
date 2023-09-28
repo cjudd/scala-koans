@@ -8,8 +8,8 @@ class AboutImportsAndPackages extends KoanSuite  {
   koan("An import can be placed in a method, hint this koan is a method") {
     import scala.collection.mutable.ArrayBuffer
     val arrayBuffer = ArrayBuffer.range(2, 10)
-    arrayBuffer(0) should be(__)
-    arrayBuffer(1) should be(__)
+    arrayBuffer(0) should be(2)
+    arrayBuffer(1) should be(3)
   }
 }
 
@@ -18,10 +18,10 @@ class Artist(val firstName: String, val lastName: String)
 package subpackage {
 
 class AboutImportsAndPackagesInSubpackages extends KoanSuite  {
-  koan("A package can be included in a file with an established established package, " +
+  koan("A package can be included in a file with an established package, " +
           "and can encapsulate it's contents with a {} block") {
     val luther = new Artist("Luther", "Vandross")
-    luther.lastName should be(__)
+    luther.lastName should be("Vandross")
   }
 }
 
@@ -41,9 +41,9 @@ class AboutReferencingAbsolutePackages extends KoanSuite  {
   import album.Album
 
   // <<< Note the import style
-  koan("A import can be done based from absolute package heirarchy") {
+  koan("A import can be done based from absolute package hierarchy") {
     val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
-    stLouisBlues.getClass.getCanonicalName should be(__)
+    stLouisBlues.getClass.getCanonicalName should be("org.scalakoans.album.Album")
   }
 }
 
@@ -52,9 +52,9 @@ class AboutReferencingAbsoluteRootPackages extends KoanSuite  {
   import _root_.org.scalakoans.album.Album
 
   // <<< Note the import style
-  koan("A import can be done based from absolute root package heirarchy using _root_") {
+  koan("A import can be done based from absolute root package hierarchy using _root_") {
     val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
-    stLouisBlues.getClass.getCanonicalName should be(__)
+    stLouisBlues.getClass.getCanonicalName should be("org.scalakoans.album.Album")
   }
 }
 
@@ -65,7 +65,7 @@ class AboutReferencingRelativePackages extends KoanSuite  {
   // <<< Note the import style
   koan("A import can be done based from relative packaging") {
     val stLouisBlues = new Album("St. Louis Blues", 1940, new Artist("Louie", "Armstrong"))
-    stLouisBlues.getClass.getCanonicalName should be(__)
+    stLouisBlues.getClass.getCanonicalName should be("org.scalakoans.album.Album")
   }
 }
 
@@ -88,9 +88,9 @@ class AboutImportingTechniques extends KoanSuite  {
     val producer = new Producer("Joe", "Oliver")
     val distributor = new Distributor("RYKO Classic Music")
 
-    genre.name should be(__)
-    producer.firstName should be(__)
-    distributor.name should be(__)
+    genre.name should be("Jazz")
+    producer.firstName should be("Joe")
+    distributor.name should be("RYKO Classic Music")
   }
 
   koan("To import all classes of a package, use can also use {_} as a wildcard") {
@@ -99,9 +99,9 @@ class AboutImportingTechniques extends KoanSuite  {
     val producer = new Producer("Joe", "Oliver")
     val distributor = new Distributor("RYKO Classic Music")
 
-    genre.name should be(__)
-    producer.firstName should be(__)
-    distributor.name should be(__)
+    genre.name should be("Jazz")
+    producer.firstName should be("Joe")
+    distributor.name should be("RYKO Classic Music")
   }
 
   koan("To import a select group of classes of a package, use {className1, className}") {
@@ -109,8 +109,8 @@ class AboutImportingTechniques extends KoanSuite  {
     val genre = new Genre("Jazz")
     val distributor = new Distributor("RYKO Classic Music")
 
-    genre.name should be(__)
-    distributor.name should be(__)
+    genre.name should be("Jazz")
+    distributor.name should be("RYKO Classic Music")
   }
 
   koan("You can rename a class by using => and create an alias") {
@@ -118,8 +118,8 @@ class AboutImportingTechniques extends KoanSuite  {
     val musicType = new MusicType("Jazz")
     val distributor = new Distributor("RYKO Classic Music")
 
-    musicType.name should be(__)
-    distributor.name should be(__)
+    musicType.name should be("Jazz")
+    distributor.name should be("RYKO Classic Music")
   }
 
   koan("You can rename a class by using =>, and also import all other classes in a package keeping their name") {
@@ -128,9 +128,9 @@ class AboutImportingTechniques extends KoanSuite  {
     val producer = new Producer("Joe", "Oliver")
     val distributor = new Distributor("RYKO Classic Music")
 
-    musicType.name should be(__)
-    producer.firstName should be(__)
-    distributor.name should be(__)
+    musicType.name should be("Jazz")
+    producer.firstName should be("Joe")
+    distributor.name should be("RYKO Classic Music")
   }
 
   koan("You can also refuse classes from being imported using => _") {
@@ -138,22 +138,22 @@ class AboutImportingTechniques extends KoanSuite  {
     val musicType = new Genre("Jazz")
     val distributor = new Distributor("RYKO Classic Music")
 
-    musicType.name should be(__)
-    distributor.name should be(__)
+    musicType.name should be("Jazz")
+    distributor.name should be("RYKO Classic Music")
   }
 
   koan("You can just import the package themselves,so you can give it a verbose identity") {
     import scala.collection.mutable
     val arrayBuffer = mutable.ArrayBuffer.range(2, 10) //sounds better: A Mutable ArrayBuffer
-    arrayBuffer(0) should be(__)
-    arrayBuffer(1) should be(__)
+    arrayBuffer(0) should be(2)
+    arrayBuffer(1) should be(3)
   }
 
   koan("You can just import the package themselves, and give it an alias!") {
     import scala.collection.{mutable => changeable}
     val arrayBuffer = changeable.ArrayBuffer.range(2, 10)
-    arrayBuffer(0) should be(__)
-    arrayBuffer(1) should be(__)
+    arrayBuffer(0) should be(2)
+    arrayBuffer(1) should be(3)
   }
 }
 
