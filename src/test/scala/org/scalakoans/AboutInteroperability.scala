@@ -14,7 +14,7 @@ class AboutInteroperability extends KoanSuite  {
     import scala.jdk.CollectionConverters._
     val d = new SomeJavaClass
     val e = List("one", "two", "three")
-    d.findSizeOfRawType(e.asJava) should be(__)
+    d.findSizeOfRawType(e.asJava) should be(3)
   }
 
   class Boat(size: Int, manufacturer: String)
@@ -23,6 +23,6 @@ class AboutInteroperability extends KoanSuite  {
     import scala.jdk.CollectionConverters._
     val d = new SomeJavaClass
     val e = List(new Boat(33, "Skyway"), new Boat(35, "New Boat"))
-    d.findSizeOfUnknownType(e.asJava) should be(__)
+    d.findSizeOfUnknownType(e.asJava) should be(2)
   }
 }
